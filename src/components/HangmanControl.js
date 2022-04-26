@@ -2,6 +2,7 @@ import React from 'react';
 // import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import randomWord from "./Words.js"
+import Keyboard from './Keyboard.js';
 
 class HangmanControl extends React.Component {
 
@@ -44,6 +45,7 @@ class HangmanControl extends React.Component {
         <h3>Hi There! Welcome to Hangman</h3>
         <h3>{myWord}</h3>
         <h3>{this.splitWord(myWord)}</h3>
+        <p>{Keyboard}</p>
         <button onClick={this.startGame}>Start New Game</button>
       </React.Fragment>
     );
