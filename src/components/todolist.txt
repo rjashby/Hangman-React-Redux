@@ -1,0 +1,7 @@
+1 . Get random words - DONE
+
+2. Generate empty spaces based on word.length
+
+3. Show either input field or set of keyboard keys
+
+4. 

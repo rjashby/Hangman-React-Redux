@@ -1,6 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import PropTypes from "prop-types";
+import randomWord from "./Words.js"
 
 class HangmanControl extends React.Component {
 
@@ -8,14 +9,42 @@ class HangmanControl extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      
+
     };
   }
 
+  stateGame = () => {
+    const { dispatch } = this.props;
+    const action = {
+      type: 'START_GAME',
+    }
+    dispatch(action);
+    this.setState({
+    
+    });
+  }
+
+  splitWord = (word) => {
+    let spaceArray = [];
+    let spaces = word.split("")
+    for (let i = 0; i < spaces.length; i++) {
+      if (spaces[i] == "-") {
+        spaceArray.push("- ")
+      } else {
+      spaceArray.push("_ ");
+      }
+    }
+    return spaceArray;
+  }
+
   render(){
+    let myWord = randomWord().toUpperCase();
     return (
       <React.Fragment>
-       
+        <h3>Hi There! Welcome to Hangman</h3>
+        <h3>{myWord}</h3>
+        <h3>{this.splitWord(myWord)}</h3>
+        <button onClick={this.startGame}>Start New Game</button>
       </React.Fragment>
     );
   }
@@ -25,12 +54,12 @@ HangmanControl.propTypes = {
     
 };
 
-const mapStateToProps = state => {
-  return {
+// const mapStateToProps = state => {
+//   return {
 
-  }
-}
+//   }
+// }
 
-HangmanControl = connect(mapStateToProps)(HangmanControl);
+// HangmanControl = connect(mapStateToProps)(HangmanControl);
 
 export default HangmanControl;
